@@ -95,8 +95,8 @@ public class Main {
         Task4Interface3 sumMultiplyOfA = (n, a) -> n % a != 0;
         System.out.println("Сумма четных " + sum(numbers, sumEven));
         System.out.println("Сумма нечетных " + sum(numbers, sumOdd));
-        System.out.println("Сумма нечетных " + sum(numbers, numInto, ));
-        System.out.println("Сумма кратных A " + sum(numbers,sumMultiplyOfA));
+        System.out.println("Сумма in " + sum1(numbers, numInto, 2, 4));
+        System.out.println("Сумма кратных A " + sum2(numbers,sumMultiplyOfA, 4));
     }
 
     static int sum(int[] numbers, Task4Interface1 func) {
@@ -104,6 +104,24 @@ public class Main {
         for(int i : numbers)
         {
             if (func.isEqual(i))
+                result += i;
+        }
+        return result;
+    }
+    static int sum1(int[] numbers, Task4Interface2 func, int a, int b) {
+        int result = 0;
+        for(int i1 : numbers)
+        {
+            if (func.isEqual(i1, a, b))
+                result += i1;
+        }
+        return result;
+    }
+    static int sum2(int[] numbers, Task4Interface3 func, int a) {
+        int result = 0;
+        for(int i : numbers)
+        {
+            if (func.isEqual(i, a))
                 result += i;
         }
         return result;
